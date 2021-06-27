@@ -1,6 +1,6 @@
 //*********************************************Калькулятор*********************************************//
-// File with optimization 
-
+// File with optimization and without bag
+// Get enjoy!
 
 #include <stdio.h> // библиотека ввода/вывода
 #include <string.h> // библиотека для функции strlen - длина строки
