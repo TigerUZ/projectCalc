@@ -1,6 +1,7 @@
 //*********************************************Калькулятор*********************************************//
 // File with optimization 
 
+
 #include <stdio.h> // библиотека ввода/вывода
 #include <string.h> // библиотека для функции strlen - длина строки
 
@@ -36,6 +37,23 @@ int main()
 			values[count_values] *= -1;
 
 		i = j; // восстановление позиции с учётом рассмотренного числа в цикле while
+
+		if (sign == '*') // обработка умножения, сохранение результата во 2-ом множителе
+		{
+			values[count_values] = values[count_values - 1] * values[count_values];
+			values[count_values - 1] = 0; // обнуление 1-ого множителя
+			sign = str[i];
+		}
+
+		else if (sign == '/') // обработка деления, сохранение результата в делителе
+		{
+			values[count_values] = values[count_values - 1] / values[count_values];
+			values[count_values - 1] = 0; // обнуление делимого
+			sign = str[i];
+		}
+
+		else if (sign == '\0' || sign == '+' || sign == '-') // игнорирование знаков + и -
+			sign = str[i];
 
 		if (values[count_values] != 0) // обработка счётчика количества чисел
 			count_values++;
